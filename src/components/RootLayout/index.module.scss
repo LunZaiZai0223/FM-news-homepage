@@ -1,0 +1,13 @@
+@use '../../styles/breakpoint.scss';
+
+.container {
+	max-width: 1220px;
+	margin: 0 auto;
+	padding: 32px;
+}
+
+@media(max-width: breakpoint.$mobile) {
+	.container {
+		padding: 16px;
+	}
+}

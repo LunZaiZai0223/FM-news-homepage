@@ -1,0 +1,70 @@
+@use '../../styles/colors.scss';
+@use '../../styles/breakpoint.scss';
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	h1 {
+		cursor: pointer;
+	}
+}
+
+.link-list {
+	display: flex;
+	align-items: center;
+	gap: 32px;
+}
+
+.link-item {
+	a {
+		text-decoration: none;
+		font-family: inherit;
+		color: colors.$neutral-light-gray;
+
+		&:hover {
+			color: colors.$primary-orange;
+		}
+	}
+}
+
+.menu {
+	display: none;
+}
+
+@media(max-width: breakpoint.$mobile) {
+	.link-list {
+		padding-top: 20vh;
+    position: fixed;
+    flex-direction: column;
+    width: 75vw;
+    border: 1px solid red;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: white;
+    padding-left: 2vw;
+		transform: translateX(100%);
+		transition: transform 0.5s ease;
+		visibility: hidden;
+
+		a {
+			color: colors.$neutral-dart-blue;
+			font-size: 20px;
+		}
+	
+		&.active {
+			transform: translateX(0%);
+			visibility: visible;
+		}
+	}
+
+	.menu {
+		display: block;
+		cursor: pointer;
+		z-index: 999;
+	}
+}

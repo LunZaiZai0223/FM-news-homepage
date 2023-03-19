@@ -1,0 +1,75 @@
+@use '../../styles/colors.scss';
+@use '../../styles/breakpoint.scss';
+
+.recommendation-list {
+	display: flex;
+	gap: 24px;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.recommendation-item {
+	display: flex;
+	gap: 16px;
+}
+
+.img-wrapper {
+	width: 125px;
+
+	img {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+}
+
+.content-wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	strong {
+		font-size: 30px;
+		color: colors.$neutral-grayish-blue;
+	}
+
+	h4 {
+		font-weight: 800;
+		cursor: pointer;
+
+		&:hover {
+			color: colors.$primary-red;
+		}
+	}
+
+	p {
+		color: colors.$neutral-light-gray;
+	}
+}
+
+@media(max-width: breakpoint.$mobile) {
+	.recommendation-list {
+		flex-direction: column;
+	}
+
+	.img-wrapper {
+		width: 125px;
+
+		img {
+			width: 125px;
+		}
+	}
+
+	.recommendation-item {
+	}
+
+	.content-wrapper {
+		width: calc(100% - 125px);
+
+		h4 {
+			font-size: 22px;
+		}
+	}
+
+}

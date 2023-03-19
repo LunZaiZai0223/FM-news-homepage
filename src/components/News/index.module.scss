@@ -1,0 +1,149 @@
+@use '../../styles/colors.scss';
+@use '../../styles/breakpoint.scss';
+
+.news-container {
+	margin: 48px 0;
+	display: flex;
+	gap: 16px;
+
+	.main-news {
+		width: 72%;
+		img {
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+
+		.mobile-main-img {
+			display: none;
+		}
+	}
+
+	.sub-news {
+		width: 28%;
+		padding: 18px 20px;
+	}
+}
+
+.main-news-content {
+	display: flex;
+	justify-content: space-between;
+	gap: 40px;
+	margin-top: 28px;
+
+	h2 {
+		width: 50%;
+		font-size: 48px;
+    font-weight: 800;
+	}
+
+	.text {
+		width: 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		line-height: 28px;
+		color: colors.$neutral-light-gray;
+	}
+
+	.btn {
+		background-color: colors.$primary-red;
+		width: 50%;
+    padding: 14px;
+    border: unset;
+    color: colors.$neutral-white;
+    font-size: 14px;
+    letter-spacing: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+		cursor: pointer;
+
+		&:hover {
+			background-color: colors.$neutral-dart-blue;
+		}
+	}
+}
+
+.sub-news {
+	background-color: colors.$neutral-dart-blue;
+
+	h3 {
+		color: colors.$primary-orange;
+		font-size: 36px;
+	}
+
+	.sub-news-list {
+		gap: 16px;
+    display: flex;
+    flex-direction: column;
+
+		.sub-news-item {
+			border-bottom: 1px solid colors.$neutral-light-gray;
+			margin-top: 26px;
+			padding-bottom: 28px;
+
+	
+			h4 {
+				color: colors.$neutral-white;
+				font-size: 18px;
+				cursor: pointer;
+
+				&:hover {
+					color: colors.$primary-orange;
+				}
+			}
+
+			p {
+				color: colors.$neutral-grayish-blue;
+				line-height: 24px;
+				margin-top: 12px;
+				font-size: 14px;
+			}
+
+			&:last-of-type {
+				border-bottom: unset;
+			}
+		}
+	}
+}
+
+@media(max-width: breakpoint.$mobile) {
+	.news-container {
+		display: block;
+
+		.main-news {
+			width: 100%;
+
+			.mobile-main-img {
+				display: block;
+			}
+
+			.pc-main-img {
+				display: none;
+			}
+		}
+
+		.sub-news {
+			width: 100%;
+		}
+	}
+
+	.main-news-content {
+		display: block;
+		margin-bottom: 28px;
+
+		h2 {
+			width: 100%;
+			margin-bottom: 12px;
+		}
+
+		.text {
+			width: 100%;
+			gap: 24px;
+		}
+
+		.btn {
+			width: 50vw;
+		}
+	}
+}
