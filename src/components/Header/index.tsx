@@ -48,7 +48,14 @@ const Header = (props: Props) => {
         >
           {LINK_LIST.map(({ title, path }, index) => {
             return (
-              <li key={index} className={`${s['link-item']}`}>
+              <li
+                key={index}
+                className={`${s['link-item']}`}
+                {...(isMobileNavActive &&
+                  onToggleMobileNav && {
+                    onClick: () => onToggleMobileNav(false),
+                  })}
+              >
                 <a href={path} rel="noopener noreferrer">
                   {title}
                 </a>
